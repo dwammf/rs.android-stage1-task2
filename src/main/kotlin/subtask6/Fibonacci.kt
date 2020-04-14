@@ -2,8 +2,14 @@ package subtask6
 
 class Fibonacci {
 
-    // TODO: Complete the following function
     fun productFibonacciSequenceFor(n: Int): IntArray {
-        throw NotImplementedError("Not implemented")
+        var prev = 0
+        var now = 1
+        while (prev * now < n) {
+            val sum = prev + now
+            prev = now
+            now = sum
+        }
+        return arrayOf(prev, now, if (prev * now == n) 1 else 0).toIntArray()
     }
 }
